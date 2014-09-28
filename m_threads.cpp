@@ -15,10 +15,9 @@ void m_threads::start_threads(){
   std::cout << "Maximale Versuche: " << max_trys << std::endl;
   std::vector<std::thread> brute_threads;		// Thread-Vektor
   for(un_int i = 0; i < Parameter.pInfos.th_num; i++){		// Parameter.pInfos.max_threads einfuegen
-    brute_threads.push_back(std::thread(&Brute::start_brute, Brute(), i));
+    brute_threads.push_back(std::thread(&Brute::start_brute, Brute()));
   } 
   for(unsigned int i = 0; i < brute_threads.size(); i++){
       brute_threads.at(i).join();				// tell mainprogram to wait for end of threads
   }
-  std::cout << "Bruteforce beendet. Es wurde kein Passwort gefunden." << std::endl;
 }
